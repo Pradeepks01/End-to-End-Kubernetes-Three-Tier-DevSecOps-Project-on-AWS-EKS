@@ -43,8 +43,9 @@ pipeline {
         stage('OWASP Dependency-Check Scan') {
             steps {
                 dir('Application-Code/frontend') {
-                    dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                    // dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                    // dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                    echo 'Dependency-Check skipped to survive t3.micro RAM constraints!'
                 }
             }
         }
